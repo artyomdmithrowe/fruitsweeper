@@ -12,13 +12,14 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  transform: translate(0%, 25%);
+  padding-top: 10%;
 }
 
-.start_menu,
+.start-menu,
 .about {
   text-align: center;
   padding: 2rem;
+  max-width: 1200px;
 }
 
 .game-title {
@@ -41,22 +42,23 @@ body {
 }
 
 .menu {
-  list-style: none;
   background: #ffffff url("img/menu_background.jpg");
+  background-repeat: no-repeat;
   background-size: cover;
-  padding: 1.5rem;
+  list-style: none;
+  padding: 1rem;
   border-radius: 15px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   min-width: 300px;
 }
 
 .menu-link {
-  text-decoration: none;
   color: #2c3e50;
+  text-decoration: none;
   font-size: 3rem;
   padding: 0.8rem 1.5rem;
-  display: block;
   border-radius: 15px;
+  display: block;
   transition: all 0.3s ease;
 }
 
@@ -66,19 +68,12 @@ body {
   color: #2e7d32;
 }
 
-.about {
-  text-align: center;
-  padding: 2rem;
-  max-width: 1200px;
-}
-
 .author-content {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 5rem;
   padding: 3rem;
-  margin-top: 2rem;
 }
 
 .author-info {
@@ -104,4 +99,15 @@ body {
   width: 100%;
   height: auto;
   display: block;
+}
+
+.new-game-menu {
+  background: #ffffff url("img/new_game_menu_background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  list-style: none;
+  padding: 1rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  min-width: 300px;
 }
