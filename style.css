@@ -7,12 +7,11 @@
 
 body {
   background: #f0f9e8 url("img/background.jpg");
-  background-repeat: no-repeat;
   background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 10%;
+  padding-top: 9.4%;
 }
 
 .start-menu,
@@ -23,10 +22,9 @@ body {
 }
 
 .game-title {
-  font-size: 8rem;
+  font-size: calc(4vw + 4vh + 2vmin);
   color: #ff6b6b;
   text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
-  margin-bottom: 1rem;
   letter-spacing: 2px;
   animation: titleFloat 3s ease-in-out infinite;
 }
@@ -43,7 +41,6 @@ body {
 
 .menu {
   background: #ffffff url("img/menu_background.jpg");
-  background-repeat: no-repeat;
   background-size: cover;
   list-style: none;
   padding: 1rem;
@@ -55,7 +52,7 @@ body {
 .menu-link {
   color: #2c3e50;
   text-decoration: none;
-  font-size: 3rem;
+  font-size: calc(1.5vw + 1.5vh + 0.5vmin);
   padding: 0.8rem 1.5rem;
   border-radius: 15px;
   display: block;
@@ -82,7 +79,7 @@ body {
 }
 
 .author-name {
-  font-size: 4rem;
+  font-size: calc(2vw + 2vh + 1vmin);
   color: #2e7d32;
   margin-bottom: 2rem;
   text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.15);
@@ -103,11 +100,29 @@ body {
 
 .new-game-menu {
   background: #ffffff url("img/new_game_menu_background.jpg");
-  background-repeat: no-repeat;
   background-size: cover;
   list-style: none;
   padding: 1rem;
   border-radius: 15px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   min-width: 300px;
+}
+
+.back-arrow-about {
+  display: block;
+  margin-top: -6%;
+}
+
+.back-arrow-about img {
+  width: 7%;
+}
+
+.back-arrow-menu {
+  display: block;
+  margin-top: -44%;
+}
+
+.back-arrow-menu img {
+  width: 7%;
+  margin-left: -60%;
 }
