@@ -8,6 +8,7 @@ import {
   clearNeedButtons,
   need_buttons,
   final,
+  freeFlagged,
 } from "./game.js";
 
 import {
@@ -18,6 +19,7 @@ import {
 } from "./helper.js";
 
 let table;
+let counter;
 
 function displayField() {
   table = document.getElementById("field");
@@ -43,6 +45,16 @@ function displayField() {
     }
     table.appendChild(table_row);
   }
+
+  counter = document.getElementById("counter");
+
+  let img = document.createElement("img");
+  img.src = "../img/flag.png";
+  let txt = document.createElement("text");
+  txt.textContent = current_difficult.knives;
+
+  counter.appendChild(img);
+  counter.appendChild(txt);
 }
 
 window.onclick = function (event) {
@@ -117,6 +129,7 @@ window.oncontextmenu = function (event) {
     deleteOldAndMakeNew(target, "button-flagged", "button-noclicked");
   }
 
+  counter.lastChild.textContent = freeFlagged;
   return false;
 };
 

@@ -1,4 +1,4 @@
-import { final, getAmountOfNeighbours, checkWin } from "./game.js";
+import { final, getAmountOfNeighbours, checkWin, isKnife } from "./game.js";
 
 function deleteOldAndMakeNew(button, old_atr, new_atr) {
   button.classList.remove(old_atr);
@@ -31,6 +31,18 @@ function finalDisplay() {
 
   if (checkWin()) {
     alert("Win!");
+
+    for (let current of document.querySelectorAll("button")) {
+      let pos = getPos(current);
+      let x = pos[0];
+      let y = pos[1];
+
+      if (!isKnife(x, y)) {
+        continue;
+      }
+      deleteOldAndMakeNew(current, "button-noclicked", "button-flagged");
+    }
+
     return;
   }
   alert("Lose!");

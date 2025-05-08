@@ -41,6 +41,7 @@ let firstClick = false;
 let final = false;
 let notClicked =
   current_difficult.rows * current_difficult.cols - current_difficult.knives;
+let freeFlagged = current_difficult.knives;
 let field = [];
 
 function setDifficulty(new_difficulty) {
@@ -101,6 +102,7 @@ function returnValues() {
   final = false;
   notClicked =
     current_difficult.rows * current_difficult.cols - current_difficult.knives;
+  freeFlagged = current_difficult.knives;
 }
 
 function clickButton(x, y) {
@@ -127,6 +129,11 @@ function clickButton(x, y) {
 
 function clickFlag(x, y) {
   field[x][y].isFlagged = !field[x][y].isFlagged;
+  if (field[x][y].isFlagged) {
+    --freeFlagged;
+  } else {
+    ++freeFlagged;
+  }
   return field[x][y].isFlagged;
 }
 
@@ -194,4 +201,5 @@ export {
   need_buttons,
   final,
   checkWin,
+  freeFlagged,
 };
