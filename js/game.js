@@ -22,6 +22,7 @@ class Cell {
     this.isClicked = false;
     this.isFlagged = false;
     this.amountOfNeighbours = 0;
+    this.isVisited = false;
   }
 }
 
@@ -31,6 +32,8 @@ let final = false;
 let notClicked =
   current_difficult.rows * current_difficult.cols - current_difficult.knives;
 let freeFlagged = current_difficult.knives;
+let amountClick = 0;
+let hardLevel = 0;
 let field = [];
 
 function setDifficulty(new_difficulty) {
@@ -39,10 +42,11 @@ function setDifficulty(new_difficulty) {
 }
 
 function startGame() {
+  returnValues();
   createField();
   setKnives();
   updateField();
-  returnValues();
+  countHardLevel();
   displayField();
 }
 
@@ -86,25 +90,75 @@ function updateField() {
   }
 }
 
+function countHardLevel() {
+  for (let i = 1; i <= current_difficult.rows; ++i) {
+    for (let j = 1; j <= current_difficult.cols; ++j) {
+      if (
+        !field[i][j].isVisited &&
+        !field[i][j].isKnife &&
+        field[i][j].amountOfNeighbours == 0
+      ) {
+        DFS(i, j);
+        ++hardLevel;
+      }
+    }
+  }
+
+  for (let i = 1; i <= current_difficult.rows; ++i) {
+    for (let j = 1; j <= current_difficult.cols; ++j) {
+      if (!field[i][j].isVisited && !field[i][j].isKnife) {
+        ++hardLevel;
+      }
+    }
+  }
+}
+
+function DFS(x, y) {
+  if (x * y == 0 || x > current_difficult.rows || y > current_difficult.cols) {
+    return;
+  }
+
+  field[x][y].isVisited = true;
+
+  if (field[x][y].amountOfNeighbours != 0) {
+    return;
+  }
+
+  for (let k = -1; k <= 1; ++k) {
+    for (let l = -1; l <= 1; ++l) {
+      if (field[x + k][y + l].isVisited) {
+        continue;
+      }
+
+      DFS(x + k, y + l);
+    }
+  }
+}
+
 function returnValues() {
   firstClick = false;
   final = false;
   notClicked =
     current_difficult.rows * current_difficult.cols - current_difficult.knives;
   freeFlagged = current_difficult.knives;
+  amountClick = 0;
+  hardLevel = 0;
 }
 
 function clickButton(x, y) {
   if (!firstClick) {
     while (field[x][y].isKnife) {
+      returnValues();
       createField();
       setKnives();
       updateField();
+      countHardLevel();
     }
     startTimer();
   }
   firstClick = true;
   field[x][y].isClicked = true;
+  ++amountClick;
 
   if (field[x][y].isKnife) {
     final = true;
@@ -157,6 +211,9 @@ function needClick(x, y, t) {
 
   if (t != 0) {
     --notClicked;
+    if (checkWin()) {
+      final = true;
+    }
   }
 
   if (field[x][y].amountOfNeighbours != 0) {
