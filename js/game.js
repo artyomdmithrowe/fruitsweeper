@@ -1,4 +1,5 @@
 import { displayField } from "./display.js";
+import { startTimer } from "./timer.js";
 
 let difficulties = {
   easy: {
@@ -12,18 +13,6 @@ let difficulties = {
     rows: 16,
     cols: 16,
     knives: 40,
-  },
-  hard: {
-    name: "hard",
-    rows: 30,
-    cols: 16,
-    knives: 99,
-  },
-  extreme: {
-    name: "extreme",
-    rows: 30,
-    cols: 24,
-    knives: 160,
   },
 };
 
@@ -112,6 +101,7 @@ function clickButton(x, y) {
       setKnives();
       updateField();
     }
+    startTimer();
   }
   firstClick = true;
   field[x][y].isClicked = true;

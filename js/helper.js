@@ -1,4 +1,5 @@
 import { final, getAmountOfNeighbours, checkWin, isKnife } from "./game.js";
+import { stopTimer } from "./timer.js";
 
 function deleteOldAndMakeNew(button, old_atr, new_atr) {
   button.classList.remove(old_atr);
@@ -28,6 +29,8 @@ function finalDisplay() {
   if (!final) {
     return;
   }
+
+  stopTimer();
 
   if (checkWin()) {
     alert("Win!");

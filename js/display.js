@@ -20,8 +20,10 @@ import {
 
 let table;
 let counter;
+let timer;
 
 function displayField() {
+  table = "";
   table = document.getElementById("field");
   table.classList.add("field-" + current_difficult.name);
 
@@ -55,6 +57,16 @@ function displayField() {
 
   counter.appendChild(img);
   counter.appendChild(txt);
+
+  timer = document.getElementById("timer");
+
+  img = document.createElement("img");
+  img.src = "../img/clock.png";
+  txt = document.createElement("text");
+  txt.textContent = 0;
+
+  timer.appendChild(img);
+  timer.appendChild(txt);
 }
 
 window.onclick = function (event) {
@@ -133,4 +145,4 @@ window.oncontextmenu = function (event) {
   return false;
 };
 
-export { displayField };
+export { displayField, timer };
