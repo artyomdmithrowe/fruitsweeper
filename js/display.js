@@ -19,17 +19,11 @@ import {
   updateElement,
 } from "./helper.js";
 
-let table;
-let counter;
-let timer;
-
 function displayField() {
-  table = document.getElementById("field");
+  let table = document.getElementById("field");
   table.classList.add("field-" + current_difficult.name);
 
-  if (table.hasChildNodes) {
-    table.innerHTML = "";
-  }
+  table.innerHTML = "";
 
   for (let i = 1; i <= current_difficult.rows; ++i) {
     let table_row = document.createElement("tr");
@@ -48,10 +42,12 @@ function displayField() {
     table.appendChild(table_row);
   }
 
-  counter = document.getElementById("counter");
+  let counter = document.getElementById("counter");
+  counter.innerHTML = "";
   updateElement(counter, "../img/flag.png", current_difficult.knives);
 
-  timer = document.getElementById("timer");
+  let timer = document.getElementById("timer");
+  timer.innerHTML = "";
   updateElement(timer, "../img/clock.png", 0);
 }
 
@@ -116,8 +112,8 @@ window.oncontextmenu = function (event) {
     deleteOldAndMakeNew(target, "button-flagged", "button-noclicked");
   }
 
-  counter.lastChild.textContent = freeFlagged;
+  document.getElementById("counter").lastChild.textContent = freeFlagged;
   return false;
 };
 
-export { displayField, timer };
+export { displayField };

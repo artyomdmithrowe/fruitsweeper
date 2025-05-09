@@ -246,6 +246,7 @@ export {
   needClick,
   clearNeedButtons,
   need_buttons,
+  firstClick,
   final,
   checkWin,
   freeFlagged,

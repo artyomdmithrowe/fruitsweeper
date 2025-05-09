@@ -1,5 +1,5 @@
 import { setDifficulty, difficulties } from "../game.js";
 
-window.addEventListener("load", () => {
+window.addEventListener("DOMContentLoaded", () => {
   setDifficulty(difficulties.medium);
 });

@@ -86,7 +86,7 @@ function showConfetti() {
 
     confetti.style.left = `${Math.random() * 100}%`;
     confetti.style.animationDelay = `${Math.random() * 2}s`;
-    confetti.style.width = `${Math.random() * 8 + 4}px`;
+    confetti.style.width = `${Math.random() * 8 + 8}px`;
     confetti.style.height = confetti.style.width;
 
     const rotation = (Math.random() - 0.5) * 180;
@@ -101,6 +101,8 @@ function showConfetti() {
   setTimeout(() => {
     container.remove();
   }, 3000);
+
+  console.log(window.localStorage);
 }
 
 export { deleteOldAndMakeNew, getPos, getDigit, finalDisplay, updateElement };

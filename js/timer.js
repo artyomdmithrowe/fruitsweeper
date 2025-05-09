@@ -1,19 +1,12 @@
-import { timer } from "./display.js";
+import { firstClick, final } from "./game.js";
 
-let wasStarted = false;
-let work = true;
+function startTimer() {}
 
-function startTimer() {
-  wasStarted = true;
-}
-
-function stopTimer() {
-  work = false;
-}
+function stopTimer() {}
 
 setTimeout(function increaseTime() {
-  if (wasStarted && work) {
-    ++timer.lastChild.textContent;
+  if (firstClick && !final) {
+    ++document.getElementById("timer").lastChild.textContent;
   }
 
   setTimeout(increaseTime, 1000);

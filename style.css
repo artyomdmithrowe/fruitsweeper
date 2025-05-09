@@ -118,6 +118,11 @@ body {
 
 .back-arrow-about img {
   width: 7%;
+  transition: transform 0.3s ease;
+}
+
+.back-arrow-about img:hover {
+  transform: scale(1.1);
 }
 
 .back-arrow-menu {
@@ -127,6 +132,11 @@ body {
 .back-arrow-menu img {
   width: 12%;
   margin-left: -65%;
+  transition: transform 0.3s ease;
+}
+
+.back-arrow-menu img:hover {
+  transform: scale(1.1);
 }
 
 .game {
@@ -238,6 +248,11 @@ body {
 .back-arrow-games img {
   width: 15%;
   margin-left: -38%;
+  transition: transform 0.3s ease;
+}
+
+.back-arrow-games img:hover {
+  transform: scale(1.1);
 }
 
 .counter {
@@ -299,6 +314,25 @@ body {
 .again-button img {
   width: 20%;
   margin-left: 126%;
+  transition: transform 0.3s ease;
+}
+
+.again-button img:hover {
+  transform: scale(1.1);
+}
+
+.help-button {
+  margin-top: -87%;
+}
+
+.help-button img {
+  width: 15%;
+  margin-left: -38%;
+  transition: transform 0.3s ease;
+}
+
+.help-button img:hover {
+  transform: scale(1.1);
 }
 
 @keyframes cell-glow {
@@ -331,8 +365,6 @@ body {
 
 .confetti {
   position: fixed;
-  width: 10px;
-  height: 10px;
   top: -10px;
   pointer-events: none;
 
@@ -394,4 +426,68 @@ body {
     transform: scale(3) translateY(-30px);
     opacity: 0;
   }
+}
+
+.rules-title {
+  margin-top: -5%;
+}
+
+.rules-container {
+  background: #fce3e8;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  width: 1000px;
+
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.content-block {
+  flex: 1;
+  min-width: 300px;
+  font-size: 2rem;
+}
+
+.content-block-text {
+  font-family: "Pacifico", cursive;
+}
+
+.rule-image {
+  max-width: 400px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.page-button-left {
+  display: block;
+}
+
+.page-button-left img {
+  width: 10%;
+  transition: transform 0.3s ease;
+
+  margin-left: -15%;
+  margin-top: 1%;
+  margin-bottom: -10.5%;
+}
+
+.page-button-left img:hover {
+  transform: scale(1.1);
+}
+
+.page-button-right {
+  display: block;
+}
+
+.page-button-right img {
+  width: 10%;
+  transition: transform 0.3s ease;
+
+  margin-right: -15%;
+}
+
+.page-button-right img:hover {
+  transform: scale(1.1);
 }
