@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruitsweeper</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cal+Sans&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <main id="game" class="game" onmousedown="return false" onselectstart="return false">
+        <table id="field"></table>
+
+        <div class="back-arrow">
+            <div class="back-arrow-games">
+                <a href="new_game.html">
+                    <img src="../img/back.png" alt="Back Arrow">
+                </a>
+            </div>
+        </div>
+
+        <div id="counter" class="counter"></div>
+        <div id="timer" class="timer"></div>
+
+        <div class="back-arrow">
+            <div class="again-button">
+                <a href="game_field_easy.html">
+                    <img src="../img/again.png" alt="Start new game">
+                </a>
+            </div>
+        </div>
+
+        <div class="back-arrow">
+            <div class="help-button">
+                <a href="how_to_play.html" target="_blank">
+                    <img src="../img/help.png" alt="Help">
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/games/medium.js" type="module"></script>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fruitsweeper</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cal+Sans&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+</head>
+
+<body>
+    <main class="start-menu" onmousedown="return false" onselectstart="return false">
+        <div class="game-title">
+            <div class="rules-title">ABOUT GAME</div>
+        </div>
+
+        <div class="rules-container"></div>
+
+        <div class="back-arrow">
+            <div class="page-button-left">
+                <img src="../img/left.png" alt="Go Left" onclick="prevPage()">
+            </div>
+        </div>
+
+        <div class="back-arrow">
+            <div class="page-button-right">
+                <img src="../img/right.png" alt="Go Right" onclick="nextPage()">
+            </div>
+        </div>
+
+        <div class="back-arrow">
+            <div class="back-arrow-menu">
+                <a href="../index.html">
+                    <img src="../img/home.png" alt="Back to Home">
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/how_to_play.js"></script>
+</body>
+
+</html>
