@@ -16,6 +16,7 @@ import {
   getPos,
   getDigit,
   finalDisplay,
+  updateElement,
 } from "./helper.js";
 
 let table;
@@ -23,7 +24,6 @@ let counter;
 let timer;
 
 function displayField() {
-  table = "";
   table = document.getElementById("field");
   table.classList.add("field-" + current_difficult.name);
 
@@ -40,7 +40,7 @@ function displayField() {
       button.classList.add("button");
       button.classList.add("button-" + current_difficult.name);
       button.classList.add("button-noclicked");
-      button.setAttribute("data-position", i + "_" + j);
+      button.setAttribute("data-position", `${i}_${j}`);
 
       table_data.appendChild(button);
       table_row.appendChild(table_data);
@@ -49,24 +49,10 @@ function displayField() {
   }
 
   counter = document.getElementById("counter");
-
-  let img = document.createElement("img");
-  img.src = "../img/flag.png";
-  let txt = document.createElement("text");
-  txt.textContent = current_difficult.knives;
-
-  counter.appendChild(img);
-  counter.appendChild(txt);
+  updateElement(counter, "../img/flag.png", current_difficult.knives);
 
   timer = document.getElementById("timer");
-
-  img = document.createElement("img");
-  img.src = "../img/clock.png";
-  txt = document.createElement("text");
-  txt.textContent = 0;
-
-  timer.appendChild(img);
-  timer.appendChild(txt);
+  updateElement(timer, "../img/clock.png", 0);
 }
 
 window.onclick = function (event) {
@@ -76,46 +62,37 @@ window.onclick = function (event) {
   }
 
   let pos = getPos(target);
-  let x = pos[0];
-  let y = pos[1];
-  clickButton(x, y);
+  clickButton(pos["x"], pos["y"]);
 
   deleteOldAndMakeNew(target, "button-noclicked", "button-clicked");
 
-  if (isKnife(x, y)) {
+  if (isKnife(pos["x"], pos["y"])) {
     target.classList.add("button-knife-clicked");
 
-    for (let current of document.querySelectorAll("button")) {
-      pos = getPos(current);
-      x = pos[0];
-      y = pos[1];
+    document.querySelectorAll("button").forEach((button) => {
+      pos = getPos(button);
 
-      if (!isKnife(x, y)) {
-        continue;
+      if (isKnife(pos["x"], pos["y"])) {
+        deleteOldAndMakeNew(button, "button-noclicked", "button-clicked");
+        button.classList.add("button-knife");
       }
-      deleteOldAndMakeNew(current, "button-noclicked", "button-clicked");
-      current.classList.add("button-knife");
-    }
-  } else if (getAmountOfNeighbours(x, y) != 0) {
-    getDigit(target, x, y);
+    });
+  } else if (getAmountOfNeighbours(pos["x"], pos["y"]) != 0) {
+    getDigit(target, pos["x"], pos["y"]);
   } else {
     clearNeedButtons();
-    needClick(x, y, 0);
+    needClick(pos["x"], pos["y"], 0);
 
-    for (let current of document.querySelectorAll("button")) {
-      if (!need_buttons.includes(current.dataset.position)) {
-        continue;
+    document.querySelectorAll("button").forEach((button) => {
+      if (need_buttons.includes(button.dataset.position)) {
+        pos = getPos(button);
+
+        deleteOldAndMakeNew(button, "button-noclicked", "button-clicked");
+        if (getAmountOfNeighbours(pos["x"], pos["y"]) != 0) {
+          getDigit(button, pos["x"], pos["y"]);
+        }
       }
-
-      pos = getPos(current);
-      x = pos[0];
-      y = pos[1];
-
-      deleteOldAndMakeNew(current, "button-noclicked", "button-clicked");
-      if (getAmountOfNeighbours(x, y) != 0) {
-        getDigit(current, x, y);
-      }
-    }
+    });
   }
 
   finalDisplay();
@@ -131,9 +108,7 @@ window.oncontextmenu = function (event) {
   }
 
   let pos = getPos(target);
-  let x = pos[0];
-  let y = pos[1];
-  let have_flag = clickFlag(x, y);
+  let have_flag = clickFlag(pos["x"], pos["y"]);
 
   if (have_flag) {
     deleteOldAndMakeNew(target, "button-noclicked", "button-flagged");

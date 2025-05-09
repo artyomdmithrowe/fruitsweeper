@@ -202,11 +202,11 @@ function needClick(x, y, t) {
   if (x * y == 0 || x > current_difficult.rows || y > current_difficult.cols) {
     return;
   }
-  if (need_buttons.includes(x + "_" + y)) {
+  if (need_buttons.includes(`${x}_${y}`)) {
     return;
   }
 
-  need_buttons.push(x + "_" + y);
+  need_buttons.push(`${x}_${y}`);
   field[x][y].isClicked = true;
 
   if (t != 0) {
