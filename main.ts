@@ -23,4 +23,9 @@ function getContentType(path: string): string {
   return "text/plain";
 }
 
-serve(handler, { port: 8000 });
+serve(handler, {
+  port: 8000,
+  onListen({ port }) {
+    console.log(`Server started at http://localhost:${port}`);
+  },
+});
