@@ -32,4 +32,5 @@ jobs:
           project: "dmithrowe-fruitsweeeper"
           entrypoint: "main.ts"
           root: "."
-          args: --allow-net --allow-read
+          
+          
