@@ -6,27 +6,27 @@
 }
 
 body {
-  background: #f0f9e8 url("./img/background.jpg");
+  background: #f0f9e8 url("./img/background.jpg") no-repeat center center fixed;
   background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 9.4%;
+  padding-top: 10vh;
 }
 
 .start-menu,
 .about {
   text-align: center;
-  padding: 2rem;
   max-width: 1200px;
 }
 
 .game-title {
-  font-size: 7rem;
+  font-size: clamp(3rem, 10vw, 7rem);
   color: #ff6b6b;
   text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
   letter-spacing: 2px;
   animation: titleFloat 3s ease-in-out infinite;
+  will-change: transform;
 }
 
 @keyframes titleFloat {
@@ -46,23 +46,29 @@ body {
   padding: 1rem;
   border-radius: 15px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  min-width: 300px;
 }
 
 .menu-link {
   color: #2c3e50;
   text-decoration: none;
-  font-size: 3.3rem;
-  padding: 0.8rem 1.5rem;
-  border-radius: 15px;
+  font-size: clamp(1.8rem, 4vw, 3.3rem);
+  padding: 1rem 2rem;
   display: block;
+  border-radius: 15px;
   transition: all 0.3s ease;
+  will-change: transform;
 }
 
 .menu-link:hover {
   background: #c8e6c9;
   transform: translateX(10px);
   color: #2e7d32;
+}
+
+@media (hover: hover) {
+  .menu-link:hover {
+    transform: translateX(10px);
+  }
 }
 
 .author-content {
