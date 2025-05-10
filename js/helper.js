@@ -80,7 +80,7 @@ function addWinEffects() {
 function showConfetti() {
   const container = document.createElement("div");
 
-  for (let i = 0; i < 500; i++) {
+  for (let i = 0; i < 300; i++) {
     const confetti = document.createElement("div");
     confetti.className = "confetti";
 

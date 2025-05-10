@@ -25,6 +25,7 @@ body {
   color: #ff6b6b;
   text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
   letter-spacing: 2px;
+  padding: 1rem;
   animation: titleFloat 3s ease-in-out infinite;
   will-change: transform;
 }
@@ -32,10 +33,10 @@ body {
 @keyframes titleFloat {
   0%,
   100% {
-    transform: translateY(-5px);
+    transform: translate3d(0, -0.3vw, 0);
   }
   50% {
-    transform: translateY(5px);
+    transform: translate3d(0, 0.3vw, 0);
   }
 }
 
@@ -104,45 +105,35 @@ body {
   display: block;
 }
 
-.new-game-menu {
-  background: #ffffff url("./img/new_game_menu_background.jpg");
-  background-size: cover;
-  list-style: none;
-  padding: 1rem;
-  border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  min-width: 300px;
-}
-
 .back-arrow {
   display: block;
 }
 
-.back-arrow-about {
-  margin-top: -5%;
-}
-
-.back-arrow-about img {
-  width: 7%;
+.back-arrow-about img,
+.back-arrow-menu img,
+.page-button-left img,
+.page-button-right img,
+.page-button-home img {
+  width: 10%;
   transition: transform 0.3s ease;
+
+  will-change: transform;
 }
 
-.back-arrow-about img:hover {
+.back-arrow-about img:hover,
+.back-arrow-menu img:hover,
+.page-button-left img:hover,
+.page-button-right img:hover,
+.page-button-home img:hover {
   transform: scale(1.1);
+}
+
+.back-arrow-about {
+  margin-top: -2vh;
 }
 
 .back-arrow-menu {
-  margin-top: -24%;
-}
-
-.back-arrow-menu img {
-  width: 12%;
-  margin-left: -65%;
-  transition: transform 0.3s ease;
-}
-
-.back-arrow-menu img:hover {
-  transform: scale(1.1);
+  margin-top: 2vh;
 }
 
 .game {
@@ -233,13 +224,13 @@ body {
 @keyframes knife-shake {
   0%,
   100% {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
   25% {
-    transform: translateX(-8px) rotate(-10deg);
+    transform: translate3d(-8px, 0, 0) rotate(-10deg);
   }
   75% {
-    transform: translateX(8px) rotate(10deg);
+    transform: translate3d(8px, 0, 0) rotate(10deg);
   }
 }
 
@@ -384,14 +375,14 @@ body {
 
 @keyframes confetti-fall {
   0% {
-    transform: translateY(0) rotate(0deg);
+    transform: translate3d(0, 0, 0) rotate(0deg);
     opacity: 1;
   }
   80% {
     opacity: 0.8;
   }
   100% {
-    transform: translateY(100vh) rotate(360deg);
+    transform: translate3d(0, 100vh, 0) rotate(360deg);
     opacity: 0;
   }
 }
@@ -426,10 +417,10 @@ body {
 
 @keyframes confetti-explode {
   0% {
-    transform: scale(1) translateY(0);
+    transform: scale(1) translate3d(0, 0, 0);
   }
   100% {
-    transform: scale(3) translateY(-30px);
+    transform: scale(3) translate3d(0, -30px, 0);
     opacity: 0;
   }
 }
@@ -466,34 +457,15 @@ body {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.page-button-left {
-  display: block;
-}
-
 .page-button-left img {
-  width: 10%;
-  transition: transform 0.3s ease;
-
-  margin-left: -15%;
-  margin-top: 1%;
+  margin-left: -25%;
   margin-bottom: -10.5%;
 }
 
-.page-button-left img:hover {
-  transform: scale(1.1);
-}
-
-.page-button-right {
-  display: block;
-}
-
 .page-button-right img {
-  width: 10%;
-  transition: transform 0.3s ease;
-
-  margin-right: -15%;
+  margin-right: -25%;
 }
 
-.page-button-right img:hover {
-  transform: scale(1.1);
+.page-button-home {
+  margin-top: -10.8%;
 }
