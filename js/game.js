@@ -250,4 +250,6 @@ export {
   final,
   checkWin,
   freeFlagged,
+  hardLevel,
+  amountClick,
 };

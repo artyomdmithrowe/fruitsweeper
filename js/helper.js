@@ -1,4 +1,12 @@
-import { final, getAmountOfNeighbours, checkWin, isKnife } from "./game.js";
+import {
+  final,
+  getAmountOfNeighbours,
+  checkWin,
+  isKnife,
+  current_difficult,
+  hardLevel,
+  amountClick,
+} from "./game.js";
 import { stopTimer } from "./timer.js";
 
 const winSound = new Audio("../sound/win.mp3");
@@ -56,13 +64,19 @@ function finalDisplay() {
 
     addWinEffects();
     showConfetti();
-    setTimeout(() => alert("Win!"), 500);
     document.querySelectorAll("button-clicked").forEach((button) => {
       button.classList.add("win-glow");
     });
     winSound.play();
+    saveResult();
   } else {
-    setTimeout(() => alert("Game Over!"), 800);
+    setTimeout(
+      () =>
+        alert(
+          "Вы попали на нож...Ничего, в этот раз не получилось, попробуйте еще раз!"
+        ),
+      800
+    );
     loseSound.play();
   }
 }
@@ -101,8 +115,51 @@ function showConfetti() {
   setTimeout(() => {
     container.remove();
   }, 3000);
+}
 
-  console.log(window.localStorage);
+export async function saveResult() {
+  setTimeout(async () => {
+    const player = prompt("Победа! Введите ваше имя:", "Анонимный герой");
+    if (player === null) {
+      return;
+    }
+
+    const resultData = {
+      username: player,
+      time: parseInt(document.getElementById("timer").textContent),
+      level: current_difficult.name,
+      field_difficulty: hardLevel,
+      efficiency: hardLevel / amountClick,
+      date: formatDate(new Date()),
+    };
+
+    await fetch("../api/results", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(resultData),
+    });
+  }, 500);
+}
+
+function formatDate(date) {
+  let day = date.getDate();
+  if (day < 10) {
+    day = "0" + day;
+  }
+
+  let month = date.getMonth() + 1;
+  if (month < 10) {
+    month = "0" + month;
+  }
+
+  let year = date.getFullYear() % 100;
+  if (year < 10) {
+    year = "0" + year;
+  }
+
+  return day + "." + month + "." + year;
 }
 
 export { deleteOldAndMakeNew, getPos, getDigit, finalDisplay, updateElement };

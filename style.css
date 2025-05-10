@@ -21,7 +21,7 @@ body {
 }
 
 .game-title {
-  font-size: clamp(3rem, 10vw, 7rem);
+  font-size: clamp(2.5rem, 10vw, 7rem);
   color: #ff6b6b;
   text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
   letter-spacing: 2px;
@@ -52,7 +52,7 @@ body {
 .menu-link {
   color: #2c3e50;
   text-decoration: none;
-  font-size: clamp(1.8rem, 4vw, 3.3rem);
+  font-size: clamp(1.5rem, 4vw, 3.3rem);
   padding: 1rem 2rem;
   display: block;
   border-radius: 15px;
@@ -76,8 +76,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 5rem;
-  padding: 3rem;
+  gap: 3vw;
+  padding: 3vw;
 }
 
 .author-info {
@@ -86,14 +86,14 @@ body {
 }
 
 .author-name {
-  font-size: 4.1rem;
+  font-size: clamp(2rem, 5vw, 4.1rem);
   color: #2e7d32;
-  margin-bottom: 2rem;
+  margin-bottom: 2vh;
   text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.15);
 }
 
 .author-photo {
-  flex: 0 0 400px;
+  flex: 0 0 21vw;
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
@@ -103,6 +103,20 @@ body {
   width: 100%;
   height: auto;
   display: block;
+}
+
+@media (max-width: 768px) {
+  .author-content {
+    padding: 5vw;
+  }
+
+  .author-name {
+    margin-left: 10%;
+  }
+
+  .author-photo {
+    flex: 0 0 40vw;
+  }
 }
 
 .back-arrow {
