@@ -6,7 +6,7 @@ let difficulties = {
     name: "easy",
     rows: 9,
     cols: 9,
-    knives: 0,
+    knives: 10,
   },
   medium: {
     name: "medium",
