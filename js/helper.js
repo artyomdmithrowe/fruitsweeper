@@ -141,7 +141,7 @@ export async function saveResult() {
       field_difficulty: hardLevel,
       efficiency: parseFloat(efficiency.toFixed(2)),
       date: formatDate(new Date()),
-      was_added: new Date(),
+      was_added: +new Date(),
     };
 
     await fetch("../api/results", {
