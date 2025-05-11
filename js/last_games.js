@@ -20,7 +20,7 @@ async function initTable() {
       TOTAL_PAGES,
       Math.floor(1 + (data.length - 1) / ITEMS_PER_PAGE)
     );
-    let sortedData = data.sort((a, b) => a.was_added - b.was_added);
+    let sortedData = data.sort((a, b) => b.was_added - a.was_added);
 
     document.querySelector(".loading").style.display = "none";
     document.getElementById("gamesTable").style.display = "table";
