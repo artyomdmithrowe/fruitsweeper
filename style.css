@@ -446,25 +446,24 @@ body {
 }
 
 .rules-title {
-  margin-top: -5%;
+  margin-top: -5vh;
 }
 
 .rules-container {
   background: #fce3e8;
-  padding: 2rem;
+  padding: 1.5vw;
   border-radius: 15px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  width: 1000px;
+  width: 55vw;
 
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 2vw;
 }
 
 .content-block {
   flex: 1;
-  min-width: 300px;
-  font-size: 2rem;
+  font-size: clamp(1rem, 2vw, 2rem);
 }
 
 .content-block-text {
@@ -472,7 +471,7 @@ body {
 }
 
 .rule-image {
-  max-width: 400px;
+  width: 20vw;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
@@ -488,6 +487,17 @@ body {
 
 .page-button-home {
   margin-top: -10.8%;
+}
+
+@media (max-width: 768px) {
+  .rules-container {
+    display: table;
+    width: 100vw;
+  }
+
+  .rule-image {
+    width: 50vw;
+  }
 }
 
 .last-game-title {
