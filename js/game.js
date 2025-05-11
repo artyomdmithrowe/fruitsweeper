@@ -16,6 +16,8 @@ let difficulties = {
   },
 };
 
+const GameSound = new Audio("../sound/game.mp3");
+
 class Cell {
   constructor() {
     this.isKnife = false;
@@ -155,6 +157,7 @@ function clickButton(x, y) {
       countHardLevel();
     }
     startTimer();
+    GameSound.play();
   }
   firstClick = true;
   field[x][y].isClicked = true;

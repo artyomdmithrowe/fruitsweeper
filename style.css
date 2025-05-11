@@ -575,10 +575,10 @@ body {
 }
 
 @media (max-width: 480px) {
-  .games-header:nth-child(4),
-  .game-cell:nth-child(4),
-  .games-header:nth-child(5),
-  .game-cell:nth-child(5) {
+  .games-header:nth-child(3),
+  .game-cell:nth-child(3),
+  .games-header:nth-child(7),
+  .game-cell:nth-child(7) {
     display: none;
   }
 }
