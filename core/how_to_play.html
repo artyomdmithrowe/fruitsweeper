@@ -14,30 +14,30 @@
 </head>
 
 <body>
-    <main class="start-menu" onmousedown="return false" onselectstart="return false">
+    <main class="last-games" onmousedown="return false" onselectstart="return false">
         <div class="game-title">
             <div class="rules-title">ABOUT GAME</div>
         </div>
 
         <div class="rules-container"></div>
 
-        <div class="back-arrow">
-            <div class="page-button-left">
-                <img src="../img/left.png" alt="Go Left" onclick="prevPage()">
+        <div class="pagination" id="pagination">
+            <div class="back-arrow">
+                <div class="page-button-rules">
+                    <img src="../img/left.png" alt="Go Left" onclick="prevPage()">
+                </div>
             </div>
-        </div>
-
-        <div class="back-arrow">
-            <div class="page-button-right">
-                <img src="../img/right.png" alt="Go Right" onclick="nextPage()">
+            <div class="back-arrow">
+                <div class="page-button-rules">
+                    <a href="../index.html">
+                        <img src="../img/home.png" alt="Back to Home">
+                    </a>
+                </div>
             </div>
-        </div>
-
-        <div class="back-arrow">
-            <div class="page-button-home">
-                <a href="../index.html">
-                    <img src="../img/home.png" alt="Back to Home">
-                </a>
+            <div class="back-arrow">
+                <div class="page-button-rules">
+                    <img src="../img/right.png" alt="Go Right" onclick="nextPage()">
+                </div>
             </div>
         </div>
     </main>

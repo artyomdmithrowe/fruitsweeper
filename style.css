@@ -131,9 +131,7 @@ body {
 
 .back-arrow-about img,
 .back-arrow-menu img,
-.page-button-left img,
-.page-button-right img,
-.page-button-home img {
+.page-button-rules img {
   width: 10%;
   transition: transform 0.3s ease;
 
@@ -142,9 +140,7 @@ body {
 
 .back-arrow-about img:hover,
 .back-arrow-menu img:hover,
-.page-button-left img:hover,
-.page-button-right img:hover,
-.page-button-home img:hover {
+.page-button-rules img:hover {
   transform: scale(1.1);
 }
 
@@ -454,7 +450,6 @@ body {
   padding: 1.5vw;
   border-radius: 15px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  width: 55vw;
 
   display: flex;
   align-items: center;
@@ -471,22 +466,14 @@ body {
 }
 
 .rule-image {
-  width: 20vw;
+  width: 30%;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.page-button-left img {
-  margin-left: -25%;
-  margin-bottom: -10.5%;
-}
-
-.page-button-right img {
-  margin-right: -25%;
-}
-
-.page-button-home {
-  margin-top: -10.8%;
+.page-button-rules img {
+  width: 5vw;
+  cursor: pointer;
 }
 
 @media (max-width: 768px) {
@@ -497,6 +484,10 @@ body {
 
   .rule-image {
     width: 50vw;
+  }
+
+  .page-button-rules img {
+    width: 10vw;
   }
 }
 
