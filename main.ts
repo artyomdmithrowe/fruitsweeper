@@ -2,7 +2,6 @@ import { serve } from "https://deno.land/std@0.200.0/http/server.ts";
 
 import { insert_games } from "./db/insert.ts";
 import { get_games } from "./db/query.ts";
-import { delete_all_games } from "./db/delete.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -13,7 +12,6 @@ const corsHeaders = {
 let i = 0;
 
 const handler = async (req) => {
-  delete_all_games();
   const url = new URL(req.url);
 
   if (req.method === "OPTIONS") {
