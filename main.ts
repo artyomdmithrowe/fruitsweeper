@@ -9,8 +9,6 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "Content-Type",
 };
 
-let i = 0;
-
 const handler = async (req) => {
   const url = new URL(req.url);
 
