@@ -15,12 +15,14 @@ body {
 }
 
 .start-menu,
-.about {
+.about,
+.last-games {
   text-align: center;
   max-width: 1200px;
 }
 
-.game-title {
+.game-title,
+.last-game-title {
   font-size: clamp(2.5rem, 10vw, 7rem);
   color: #ff6b6b;
   text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
@@ -482,4 +484,90 @@ body {
 
 .page-button-home {
   margin-top: -10.8%;
+}
+
+.last-game-title {
+  font-size: clamp(1.9rem, 8.5vw, 6rem);
+  margin-top: -8vh;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+.loading {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  padding: 2rem;
+}
+
+.games-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.games-header,
+.game-cell {
+  padding: 2vh 2vw;
+  text-align: center;
+  border-bottom: 2px solid white;
+}
+
+.games-header,
+.game-position {
+  font-size: clamp(0.5rem, 1.5vw, 1.5rem);
+  background: #fce3e8;
+}
+
+.game-position:hover {
+  background-color: #ffecc9;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 1vw;
+  margin-top: 2rem;
+}
+
+.page-button {
+  padding: 0.8vw 1.2vw;
+  border: none;
+  background: #ff6b6b;
+  font-size: 2vw;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.page-button.active {
+  background: #2e7d32;
+}
+
+@media (max-width: 768px) {
+  .pagination {
+    gap: 3vw;
+  }
+
+  .games-header,
+  .game-cell {
+    padding: 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .page-button {
+    padding: 2vw 2vw;
+    font-size: 5vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .games-header:nth-child(4),
+  .game-cell:nth-child(4),
+  .games-header:nth-child(5),
+  .game-cell:nth-child(5) {
+    display: none;
+  }
 }

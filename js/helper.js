@@ -119,18 +119,29 @@ function showConfetti() {
 
 export async function saveResult() {
   setTimeout(async () => {
-    const player = prompt("Победа! Введите ваше имя:", "Анонимный герой");
+    let player = prompt(
+      "Победа! Введите ваш никнейм (до 15 символов):",
+      "Анонимный герой"
+    );
+
+    while (!(player === null) && player.length > 15) {
+      player = prompt("Слишком длинный. Попробуйте еще:", "Анонимный герой");
+    }
+
     if (player === null) {
       return;
     }
+
+    let efficiency = hardLevel / amountClick;
 
     const resultData = {
       username: player,
       time: parseInt(document.getElementById("timer").textContent),
       level: current_difficult.name,
       field_difficulty: hardLevel,
-      efficiency: hardLevel / amountClick,
+      efficiency: parseFloat(efficiency.toFixed(2)),
       date: formatDate(new Date()),
+      was_added: new Date(),
     };
 
     await fetch("../api/results", {
