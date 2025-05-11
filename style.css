@@ -553,11 +553,12 @@ body {
 @media (max-width: 768px) {
   .last-game-title {
     font-size: clamp(3rem, 8.5vw, 6rem);
-    margin-top: 5vh;
+    margin-top: 2vh;
   }
 
   .pagination {
     gap: 3vw;
+    margin-top: 0rem;
   }
 
   .games-header,
