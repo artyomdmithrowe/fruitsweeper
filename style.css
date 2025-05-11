@@ -108,6 +108,10 @@ body {
 }
 
 @media (max-width: 768px) {
+  .game-title {
+    margin-top: 5vh;
+  }
+
   .author-content {
     padding: 5vw;
   }
@@ -547,6 +551,11 @@ body {
 }
 
 @media (max-width: 768px) {
+  .last-game-title {
+    font-size: clamp(3rem, 8.5vw, 6rem);
+    margin-top: 5vh;
+  }
+
   .pagination {
     gap: 3vw;
   }
@@ -569,5 +578,54 @@ body {
   .games-header:nth-child(5),
   .game-cell:nth-child(5) {
     display: none;
+  }
+}
+
+.leaderboards {
+  padding: 2vw;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.controls {
+  display: flex;
+  justify-content: flex-end;
+  margin: 2rem 0;
+}
+
+.sort-select {
+  position: relative;
+  width: 200px;
+}
+
+.sort-select__input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 2px solid #4ecdc4;
+  border-radius: 8px;
+  background: white;
+  font-family: "Cal Sans", sans-serif;
+  font-size: 1rem;
+  appearance: none;
+  cursor: pointer;
+}
+
+.sort-select__input:focus {
+  outline: none;
+  box-shadow: 0 0 8px rgba(78, 205, 196, 0.3);
+}
+
+@media (max-width: 768px) {
+  .leaderboards {
+    text-align: center;
+  }
+
+  .controls {
+    justify-content: center;
+  }
+
+  .sort-select {
+    width: 100%;
+    max-width: 300px;
   }
 }

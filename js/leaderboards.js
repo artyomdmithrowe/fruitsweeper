@@ -1,36 +1,67 @@
+import {
+  sortResultBy3BV,
+  sortResultBy3BVperSecond,
+  sortResultByEfficiency,
+  sortResultByTime,
+} from "./leaderboards_helper.js";
+
 const ITEMS_PER_PAGE = 10;
 const TOTAL_PAGES = 10;
 
 let current_pages = TOTAL_PAGES;
+let currentSort = "time";
 
-async function getGames() {
-  let response = await fetch("../api/results", {
+async function getLeaderboards() {
+  const response = await fetch("../api/results", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
     },
   });
-
-  let data = await response.json();
-  return data;
+  return await response.json();
 }
 
-async function initTable() {
+function sortData(data, criteria) {
+  return data.sort((a, b) => {
+    switch (criteria) {
+      case "time":
+        return sortResultByTime(a, b);
+      case "efficiency":
+        return sortResultByEfficiency(a, b);
+      case "3BV":
+        return sortResultBy3BV(a, b);
+      case "3BV/s":
+        return sortResultBy3BVperSecond(a, b);
+      default:
+        return 0;
+    }
+  });
+}
+
+async function initLeaderboards() {
   try {
-    const data = await getGames();
+    const rawData = await getLeaderboards();
+    const sortSelect = document.getElementById("sortCriteria");
+
+    sortSelect.addEventListener("change", (e) => {
+      currentSort = e.target.value;
+      const sortedData = sortData([...rawData], currentSort);
+      renderTable(sortedData, 1);
+      setupPagination(sortedData);
+    });
+
+    const initialData = sortData(rawData, currentSort);
     current_pages = Math.min(
       TOTAL_PAGES,
-      Math.floor(1 + (data.length - 1) / ITEMS_PER_PAGE)
+      Math.floor(1 + (initialData.length - 1) / ITEMS_PER_PAGE)
     );
-    let sortedData = data.sort((a, b) => b.was_added - a.was_added);
 
     document.querySelector(".loading").style.display = "none";
-    document.getElementById("gamesTable").style.display = "table";
+    document.getElementById("leaderboardsTable").style.display = "table";
 
-    renderTable(sortedData, 1);
-    setupPagination(sortedData);
+    renderTable(initialData, 1);
+    setupPagination(initialData);
   } catch (error) {
-    console.log(error);
     document.querySelector(".loading").textContent = "Error loading data!";
   }
 }
@@ -82,4 +113,4 @@ function setupPagination(data) {
   }
 }
 
-document.addEventListener("DOMContentLoaded", initTable);
+document.addEventListener("DOMContentLoaded", initLeaderboards);

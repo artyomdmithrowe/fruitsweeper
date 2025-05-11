@@ -12,13 +12,23 @@
 </head>
 
 <body>
-    <main id="last-games" class="last-games">
-        <h1 class="last-game-title">LAST GAMES</h1>
+    <main id="leaderboards" class="leaderboards">
+        <h1 class="last-game-title">LEADERBOARDS</h1>
+
+        <div class="controls">
+            <div class="sort-select">
+                <select id="sortCriteria" class="sort-select__input">
+                    <option value="time">Time</option>
+                    <option value="efficiency">Efficiency</option>
+                    <option value="3BV">3BV</option>
+                    <option value="3BV/s">3BV/s</option>
+                </select>
+            </div>
+        </div>
 
         <div class="table-container">
             <div class="loading">Loading data...</div>
-
-            <table id="gamesTable" class="games-table" style="display: none;">
+            <table id="leaderboardsTable" class="games-table" style="display: none;">
                 <thead>
                     <tr class="game-position">
                         <th class="games-header">RANK</th>
@@ -44,7 +54,7 @@
         </div>
     </main>
 
-    <script src="../js/last_games.js"></script>
+    <script src="../js/leaderboards.js" type="module"></script>
 </body>
 
 </html>
