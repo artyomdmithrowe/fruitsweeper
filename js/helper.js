@@ -73,13 +73,12 @@ function finalDisplay() {
     winSound.play();
     saveResult();
   } else {
-    setTimeout(
-      () =>
-        alert(
-          "Вы попали на нож...Ничего, в этот раз не получилось, попробуйте еще раз!"
-        ),
-      800
-    );
+    setTimeout(() => {
+      alert(
+        "Вы попали на нож...Ничего, в этот раз не получилось, попробуйте еще раз!"
+      );
+      GameSound.play();
+    }, 800);
     GameSound.pause();
     loseSound.play();
   }
@@ -131,6 +130,8 @@ export async function saveResult() {
     while (!(player === null) && player.length > 15) {
       player = prompt("Слишком длинный. Попробуйте еще:", "Анонимный герой");
     }
+
+    GameSound.play();
 
     if (player === null) {
       return;
