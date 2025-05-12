@@ -13,6 +13,7 @@ import { stopTimer } from "./timer.js";
 const winSound = new Audio("../sound/win.mp3");
 const loseSound = new Audio("../sound/lose.mp3");
 export const GameSound = new Audio("../sound/game.mp3");
+GameSound.loop = true;
 
 function deleteOldAndMakeNew(button, old_atr, new_atr) {
   button.classList.remove(old_atr);
