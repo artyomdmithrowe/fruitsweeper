@@ -7,10 +7,12 @@ import {
   hardLevel,
   amountClick,
 } from "./game.js";
+
 import { stopTimer } from "./timer.js";
 
 const winSound = new Audio("../sound/win.mp3");
 const loseSound = new Audio("../sound/lose.mp3");
+export const GameSound = new Audio("../sound/game.mp3");
 
 function deleteOldAndMakeNew(button, old_atr, new_atr) {
   button.classList.remove(old_atr);
@@ -67,6 +69,7 @@ function finalDisplay() {
     document.querySelectorAll("button-clicked").forEach((button) => {
       button.classList.add("win-glow");
     });
+    GameSound.pause();
     winSound.play();
     saveResult();
   } else {
@@ -77,6 +80,7 @@ function finalDisplay() {
         ),
       800
     );
+    GameSound.pause();
     loseSound.play();
   }
 }

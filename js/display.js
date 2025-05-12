@@ -17,6 +17,7 @@ import {
   getDigit,
   finalDisplay,
   updateElement,
+  GameSound,
 } from "./helper.js";
 
 function displayField() {
@@ -56,6 +57,8 @@ window.onclick = function (event) {
   if (!target.classList.contains("button-noclicked") || final) {
     return;
   }
+
+  GameSound.play();
 
   let pos = getPos(target);
   clickButton(pos["x"], pos["y"]);
@@ -102,6 +105,8 @@ window.oncontextmenu = function (event) {
   if (target.classList.contains("button-clicked")) {
     return false;
   }
+
+  GameSound.play();
 
   let pos = getPos(target);
   let have_flag = clickFlag(pos["x"], pos["y"]);

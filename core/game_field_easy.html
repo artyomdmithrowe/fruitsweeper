@@ -13,34 +13,37 @@
 </head>
 
 <body>
-    <main id="game" class="game" onmousedown="return false" onselectstart="return false">
-        <table id="field"></table>
+    <main class="game-container">
+        <div class="game-layout">
+            <div class="counter-panel">
+                <div id="counter" class="counter">
+                    <img src="../img/flag.png" alt="Flags">
+                </div>
+            </div>
 
-        <div class="back-arrow">
-            <div class="back-arrow-games">
-                <a href="new_game.html">
-                    <img src="../img/back.png" alt="Back Arrow">
-                </a>
+            <div class="game-field">
+                <table id="field"></table>
+            </div>
+
+            <div class="timer-panel">
+                <div id="timer" class="timer">
+                    <img src="../img/clock.png" alt="Timer">
+                </div>
             </div>
         </div>
 
-        <div id="counter" class="counter"></div>
-        <div id="timer" class="timer"></div>
+        <div class="game-navigation">
+            <a href="new_game.html" class="nav-button">
+                <img src="../img/back.png" alt="Back">
+            </a>
 
-        <div class="back-arrow">
-            <div class="again-button">
-                <a href="game_field_easy.html">
-                    <img src="../img/again.png" alt="Start new game">
-                </a>
-            </div>
-        </div>
+            <a href="how_to_play.html" class="nav-button">
+                <img src="../img/help.png" alt="Help">
+            </a>
 
-        <div class="back-arrow">
-            <div class="help-button">
-                <a href="how_to_play.html" target="_blank">
-                    <img src="../img/help.png" alt="Help">
-                </a>
-            </div>
+            <a href="game_field_easy.html" class="nav-button">
+                <img src="../img/again.png" alt="Restart">
+            </a>
         </div>
     </main>
 

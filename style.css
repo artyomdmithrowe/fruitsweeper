@@ -152,54 +152,71 @@ body {
   margin-top: 2vh;
 }
 
-.game {
-  padding: 2rem;
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -2vh;
+}
+
+.game-layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
   max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.game-field {
+  flex: 1;
+  margin: 0 20px;
+  max-width: 700px;
+  overflow-x: auto;
 }
 
 #field {
+  width: 100%;
   border-collapse: collapse;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-  width: 140%;
-  margin-left: -20%;
 }
 
 #field-easy {
-  border-top: solid rgb(117, 117, 117) 5px;
-  border-left: solid rgb(117, 117, 117) 5px;
-  border-bottom: solid white 5px;
-  border-right: solid white 5px;
+  border-top: solid rgb(117, 117, 117) 0.4vw;
+  border-left: solid rgb(117, 117, 117) 0.4vw;
+  border-bottom: solid white 0.4vw;
+  border-right: solid white 0.4vw;
 }
 
 #field-medium {
-  border-top: solid rgb(117, 117, 117) 4px;
-  border-left: solid rgb(117, 117, 117) 4px;
-  border-bottom: solid white 4px;
-  border-right: solid white 4px;
+  border-top: solid rgb(117, 117, 117) 0.2vw;
+  border-left: solid rgb(117, 117, 117) 0.2vw;
+  border-bottom: solid white 0.2vw;
+  border-right: solid white 0.2vw;
 }
 
 .button {
   width: 100%;
+  aspect-ratio: 1;
   background-color: rgb(255, 201, 144);
-  background-size: 70%;
+  background-size: 80%;
   background-position: center;
   background-repeat: no-repeat;
 }
 
 .button-easy {
-  padding: 32px;
-  border-top: solid white 5px;
-  border-left: solid white 5px;
-  border-bottom: solid rgb(117, 117, 117) 5px;
-  border-right: solid rgb(117, 117, 117) 5px;
+  border-top: solid white 0.4vw;
+  border-left: solid white 0.4vw;
+  border-bottom: solid rgb(117, 117, 117) 0.4vw;
+  border-right: solid rgb(117, 117, 117) 0.4vw;
 }
 
 .button-medium {
-  padding: 17px;
-  border-top: solid white 4px;
-  border-left: solid white 4px;
-  border-bottom: solid rgb(117, 117, 117) 4px;
-  border-right: solid rgb(117, 117, 117) 4px;
+  border-top: solid white 0.2vw;
+  border-left: solid white 0.2vw;
+  border-bottom: solid rgb(117, 117, 117) 0.2vw;
+  border-right: solid rgb(117, 117, 117) 0.2vw;
 }
 
 .button-noclicked {
@@ -250,10 +267,6 @@ body {
   }
 }
 
-.button-digits {
-  display: block;
-}
-
 .back-arrow-games {
   margin-top: -101%;
 }
@@ -268,84 +281,107 @@ body {
   transform: scale(1.1);
 }
 
-.counter {
-  display: grid;
-  justify-content: center;
+.counter-panel,
+.timer-panel {
+  flex: 0 0 10vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.counter,
+.timer {
+  display: flex;
+  flex-direction: column;
   align-items: center;
   text-align: center;
 
-  margin-left: 135%;
-  margin-top: -4%;
-  max-width: 100px;
-}
-
-.counter img {
-  max-width: 100px;
-}
-
-.counter text {
+  gap: 10px;
   font-family: "Pacifico", cursive;
+  font-size: clamp(3rem, 9vw, 7rem);
   color: #51729b;
-  text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.6);
-  line-height: 0;
-  max-width: 100px;
-
-  font-size: 85px;
-  margin-top: 20%;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
 }
 
 .timer {
-  display: grid;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-
-  margin-left: 150%;
-  margin-top: 10%;
-  max-width: 200px;
-}
-
-.timer img {
-  max-width: 200px;
-}
-
-.timer text {
-  font-family: "Pacifico", cursive;
   color: #5cc1ad;
-  text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.6);
-  line-height: 0;
-  max-width: 200px;
-
-  font-size: 100px;
-  margin-top: 10%;
 }
 
-.again-button {
-  margin-left: 126%;
-  margin-top: 10%;
+.counter img,
+.timer img {
+  width: 100%;
 }
 
-.again-button img {
-  max-width: 130px;
+.counter text,
+.timer text {
+  max-width: 10vw;
+}
+
+.game-navigation {
+  display: flex;
+  gap: 4vw;
+  width: 100%;
+  max-width: 400px;
+}
+
+.nav-button {
+  border-radius: 15px;
   transition: transform 0.3s ease;
 }
 
-.again-button img:hover {
+.nav-button:hover {
   transform: scale(1.1);
 }
 
-.help-button {
-  margin-top: -87%;
+.nav-button img {
+  width: 100%;
 }
 
-.help-button img {
-  width: 15%;
-  margin-left: -38%;
-  transition: transform 0.3s ease;
+@media (max-width: 768px) {
+  .game-layout {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .counter-panel,
+  .timer-panel {
+    order: 1;
+    flex: 0 0 auto;
+  }
+
+  .counter,
+  .timer {
+    flex-direction: row;
+  }
+
+  .game-field {
+    margin: 0;
+    width: 90vw;
+  }
+
+  .counter img,
+  .timer img {
+    width: 20vw;
+  }
+
+  .game-navigation {
+    gap: 6vw;
+  }
 }
 
-.help-button img:hover {
-  transform: scale(1.1);
+@media (max-width: 480px) {
+  .game-container {
+    margin-top: 5vh;
+  }
+
+  .counter img,
+  .timer img {
+    width: 15vw;
+  }
+
+  .nav-button {
+    padding: 3vw;
+  }
 }
 
 @keyframes cell-glow {
