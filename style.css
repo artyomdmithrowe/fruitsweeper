@@ -321,12 +321,12 @@ body {
 }
 
 .again-button {
+  margin-left: 126%;
   margin-top: 10%;
 }
 
 .again-button img {
-  width: 20%;
-  margin-left: 126%;
+  max-width: 130px;
   transition: transform 0.3s ease;
 }
 
