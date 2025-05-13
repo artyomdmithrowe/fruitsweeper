@@ -5,7 +5,7 @@ function sortByTime(a, b) {
 }
 
 function sortByLevel(a, b) {
-  return levels_by_name[b.level] - levels_by_name[b.level];
+  return levels_by_name[b.level] - levels_by_name[a.level];
 }
 
 function sortByFieldDifficulty(a, b) {

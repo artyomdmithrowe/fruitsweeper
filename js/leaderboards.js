@@ -43,8 +43,8 @@ async function initLeaderboards() {
     const rawData = await getLeaderboards();
     const sortSelect = document.getElementById("sortCriteria");
 
-    sortSelect.addEventListener("change", (e) => {
-      currentSort = e.target.value;
+    sortSelect.addEventListener("change", (event) => {
+      currentSort = event.target.value;
       const sortedData = sortData([...rawData], currentSort);
       renderTable(sortedData, 1);
       setupPagination(sortedData);
@@ -103,7 +103,7 @@ function setupPagination(data) {
     button.addEventListener("click", () => {
       document
         .querySelectorAll(".page-button")
-        .forEach((b) => b.classList.remove("active"));
+        .forEach((button) => button.classList.remove("active"));
       button.classList.add("active");
       renderTable(data, i);
     });
