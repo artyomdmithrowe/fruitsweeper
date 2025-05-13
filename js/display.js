@@ -9,6 +9,7 @@ import {
   need_buttons,
   final,
   freeFlagged,
+  setDifficulty,
 } from "./game.js";
 
 import {
@@ -50,6 +51,8 @@ function displayField() {
   let timer = document.getElementById("timer");
   timer.innerHTML = "";
   updateElement(timer, "../img/clock.png", 0);
+
+  document.getElementById("restart").onclick = ResetGame;
 }
 
 window.onclick = function (event) {
@@ -122,3 +125,7 @@ window.oncontextmenu = function (event) {
 };
 
 export { displayField };
+
+function ResetGame() {
+  setDifficulty(current_difficult);
+}
