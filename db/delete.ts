@@ -9,6 +9,8 @@ export async function delete_all_games() {
   const data = await get_games();
 
   data.forEach((item) => {
-    delete_games("results", item.id);
+    if (item.time < 0) {
+      delete_games("results", item.id);
+    }
   });
 }
