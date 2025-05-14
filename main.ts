@@ -11,8 +11,6 @@ const corsHeaders = {
 };
 
 const handler = async (req) => {
-  console.log(1);
-  delete_all_games();
   const url = new URL(req.url);
 
   if (req.method === "OPTIONS") {
