@@ -1,7 +1,6 @@
 import { kv } from "./kv.ts";
 
 export async function insert_games(data) {
-  console.log(data);
   if (data.time < 0 || data.username.length > 15 || data.efficiency > 1) {
     throw new TypeError();
   }
